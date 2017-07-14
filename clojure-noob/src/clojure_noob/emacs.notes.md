@@ -11,5 +11,21 @@ C-x 0	Delete current window.
 
 
 Change Mode: M-x clojure-mode RET 
-Set Namespace for Cider: C-c M-n
-Compile Active Clojure: C-c C-k
+Set Namespace for Cider (to the active file): C-c M-n
+Compile Active Clojure: C-c C
+
+
+Editting Text:
+
+C-k - kill all text from cursor (point) to end of line
+C-/ - Undo last operation
+
+
+Documentation / Cider
+ C-c C-d C-d - show documentation under point (cursor) - q closes buffer
+ C-c C-d C-a - search for documentation accross function names
+ C-x C-e - evaluate expression preceeding point
+ C-c C-k - compile current buffer
+
+
+[https://github.com/georgek/paredit-cheatsheet/blob/master/paredit-cheatsheet.pdf](Paredit Cheats)
