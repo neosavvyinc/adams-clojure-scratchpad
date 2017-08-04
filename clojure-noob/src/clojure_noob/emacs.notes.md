@@ -2,6 +2,7 @@
 
 Open a buffer: C-x b RET
 Save buffer as file: C-x C-s
+Save all and close: C-x C-c
 
 C-x o	Switch cursor to another window. Try this now to switch between your Clojure file and the REPL.
 C-x 1	Delete all other windows, leaving only the current window in the frame. This doesn’t close your buffers, and it won’t cause you to lose any work.
@@ -19,7 +20,10 @@ Editting Text:
 
 C-k - kill all text from cursor (point) to end of line
 C-/ - Undo last operation
-
+C-a C-SPACE C-n M-w C-y Duplicate a whole line
+M-d kill to end of word
+C-d kill to end of line
+C-<space> (Select Block) M-; to toggle comment on or off
 
 Documentation / Cider
  C-c C-d C-d - show documentation under point (cursor) - q closes buffer
@@ -29,3 +33,7 @@ Documentation / Cider
 
 
 [https://github.com/georgek/paredit-cheatsheet/blob/master/paredit-cheatsheet.pdf](Paredit Cheats)
+
+Slurping and Barfing
+C - → : pulls the next character into the current set of parenthesis (slurp)
+C - ← : pushes the last character (symbol) of the current set of parenthesis out (barf)

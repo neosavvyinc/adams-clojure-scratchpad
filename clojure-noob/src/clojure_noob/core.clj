@@ -339,13 +339,15 @@
         part
         (recur remaining (+ accumulated-size (:size (first remaining))))))))
 
-
 (hit asym-hobbit-body-parts)
 (hit asym-hobbit-body-parts)
 (hit asym-hobbit-body-parts)
 (hit asym-hobbit-body-parts)
 
+(defn add100
+  "Expects a number and will add 100 to it"
+  [aNumber]
+  (+ aNumber 100)
+  )
 
-
-
-    
+(add100 203)
