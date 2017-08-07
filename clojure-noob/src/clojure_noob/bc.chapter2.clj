@@ -147,6 +147,8 @@
 (empty? ["no"])
 
 (map identity {:sunlight-reaction "Glitter!"})
+
+;; into
 (into {} (map identity {:sunlight-reaction "Glitter!"}))
 
 (def ingredients (map identity [:garlic :sesame-oil :fried-eggs]))
@@ -162,3 +164,59 @@ garlic
 
 (into {:favorite-animal "kitty"} {:least-favorite-smell "dog" :relationship-with-teenager "creepy"} )
 
+;; conj
+(conj [0] [1]) 
+
+;; above is not equal to the below
+(into [0] [1])
+
+;; to get the equivalent
+(conj [0] 1)
+(conj [0] 1 2 3 4 5)
+(conj {:time "midnight"} [:place "ye olde cemetarium"])
+
+;; conj in terms of into
+(defn my-conj
+  [target & additions] 
+  (into target additions))
+
+(my-conj [1] 1 2 3)
+
+(max 0 1 2)
+(apply max [1 2 3])
+
+;; into in terms of conj
+(defn my-into
+  [target & additions]
+  apply conj target additions)
+
+(my-into [0] [1 2 3])
+
+(def add10 (partial + 10))
+(add10 3)
+(add10 5)
+
+(def add-missing-elements
+  (partial conj ["water" "earth" "air"]))
+(add-missing-elements "unobtainium" "adamatium")
+
+;; example of a toy partial for logging
+(defn lousy-logger
+  [log-level message] 
+  (condp = log-level
+    :warn (clojure.string/lower-case message) 
+    :emergency (clojure.string/upper-case message)))
+
+(def warn (partial lousy-logger :warn))
+(def fail (partial lousy-logger :emergency))
+(warn "Red light ahead")
+(fail "stop")
+
+(defn identify-humans
+  [social-security-numbers]
+  (filter #(not (vampire? %))
+          (map vampire-related-details social-security-numbers)))
+
+
+
+                      
